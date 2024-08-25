@@ -214,8 +214,8 @@ const Nav = ({ isHome }) => {
 
   return (
     <StyledHeader
-      scrollDirection={scrollDirection}
-      scrolledToTop={scrolledToTop}
+      $scrollDirection={scrollDirection}
+      $scrolledToTop={scrolledToTop}
     >
       <StyledNav>
         {/* Removed the prefersReducedMotion conditional rendering */}

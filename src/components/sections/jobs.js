@@ -247,7 +247,7 @@ const Jobs = () => {
           {jobsData.map((job, i) => (
             <StyledTabButton
               key={i}
-              isActive={activeTabId === i}
+              $isActive={activeTabId === i}
               onClick={() => setActiveTabId(i)}
               ref={(el) => (tabs.current[i] = el)}
               id={`tab-${i}`}
@@ -259,7 +259,7 @@ const Jobs = () => {
               <span>{job.company}</span>
             </StyledTabButton>
           ))}
-          <StyledHighlight activeTabId={activeTabId} />
+          <StyledHighlight $activeTabId={activeTabId} />
         </StyledTabList>
 
         <StyledTabPanels>
@@ -300,4 +300,4 @@ const Jobs = () => {
   );
 };
 
-export default Jobs
+export default Jobs;

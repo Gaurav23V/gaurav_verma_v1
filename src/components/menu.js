@@ -250,7 +250,7 @@ const Menu = () => {
       <div ref={wrapperRef}>
         <StyledHamburgerButton
           onClick={toggleMenu}
-          menuOpen={menuOpen}
+          $menuOpen={menuOpen}
           ref={buttonRef}
           aria-label="Menu"
         >
@@ -259,7 +259,7 @@ const Menu = () => {
           </div>
         </StyledHamburgerButton>
         <StyledSidebar
-          menuOpen={menuOpen}
+          $menuOpen={menuOpen}
           aria-hidden={!menuOpen}
           tabIndex={menuOpen ? 1 : -1}
         >
