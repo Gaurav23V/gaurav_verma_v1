@@ -259,7 +259,7 @@ const Jobs = () => {
               <span>{job.company}</span>
             </StyledTabButton>
           ))}
-          <StyledHighlight $activeTabId={activeTabId} />
+          <StyledHighlight activeTabId={activeTabId} />
         </StyledTabList>
 
         <StyledTabPanels>
