@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
@@ -170,14 +170,14 @@ const Menu = () => {
   let firstFocusableEl;
   let lastFocusableEl;
 
-  const setFocusables = () => {
+  const setFocusables = useCallback(() => {
     menuFocusables = [
       buttonRef.current,
       ...Array.from(navRef.current.querySelectorAll("a")),
     ];
     firstFocusableEl = menuFocusables[0];
     lastFocusableEl = menuFocusables[menuFocusables.length - 1];
-  };
+  }, []);
 
   const handleBackwardTab = (e) => {
     if (document.activeElement === firstFocusableEl) {
@@ -193,7 +193,7 @@ const Menu = () => {
     }
   };
 
-  const onKeyDown = (e) => {
+  const onKeyDown = useCallback((e) => {
     switch (e.key) {
       case KEY_CODES.ESCAPE:
       case KEY_CODES.ESCAPE_IE11: {
@@ -218,7 +218,7 @@ const Menu = () => {
         break;
       }
     }
-  };
+  }, []);
 
   const onResize = (e) => {
     if (e.currentTarget.innerWidth > 768) {
@@ -236,7 +236,7 @@ const Menu = () => {
       document.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [onKeyDown, setFocusables, onResize]);
 
   const wrapperRef = useRef();
   useOnClickOutside(wrapperRef, () => setMenuOpen(false));

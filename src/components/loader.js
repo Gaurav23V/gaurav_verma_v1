@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Head from "next/head"; // Use Next.js's Head component
 import PropTypes from "prop-types";
 import anime from "animejs";
@@ -42,16 +42,7 @@ const StyledLoader = styled.div`
 `;
 
 const Loader = ({ finishLoading }) => {
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      const logoWrapper = document.querySelector(".logo-wrapper");
-      logoWrapper.classList.add("show");
-      animate();
-    }, 10);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  const animate = () => {
+  const animate = useCallback(() => {
     const loader = anime.timeline({
       complete: () => finishLoading(),
     });
@@ -85,7 +76,17 @@ const Loader = ({ finishLoading }) => {
         opacity: 0,
         zIndex: -1,
       });
-  };
+  }, [finishLoading]);
+
+  
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const logoWrapper = document.querySelector(".logo-wrapper");
+      logoWrapper.classList.add("show");
+      animate();
+    }, 10);
+    return () => clearTimeout(timeout);
+  }, [animate]);
 
   return (
     <StyledLoader className="loader">

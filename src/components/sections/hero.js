@@ -58,13 +58,13 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Gaurav Verma</h2>;
+  const two = <h2 className="big-heading">Gaurav Verma.</h2>;
   const three = <h3 className="big-heading">sudo pacman -Syu</h3>;
   const four = (
     <>
       <p>
-        Full-Stack Developer And Passionate About MLOps. Currently, I'm a Software
-        Intern working on web crawlers and backend management at{" "}
+        Full-Stack Developer And Passionate About MLOps. Currently, I&apos;m a
+        Software Intern working on web crawlers and backend management at{" "}
         <a href="https://upvalue.in/" target="_blank" rel="noreferrer">
           UpValue
         </a>

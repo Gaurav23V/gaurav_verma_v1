@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { srConfig } from "@/config";
@@ -152,7 +152,7 @@ const About = () => {
             <p>
               I am Gaurav and i enjoy exploring new tech. Fell in love with
               computers ever since I played my first computer game, and still
-              can't control the excitement I get after hearing about something
+              can&apos;t control the excitement I get after hearing about something
               new.
             </p>
             <p>
