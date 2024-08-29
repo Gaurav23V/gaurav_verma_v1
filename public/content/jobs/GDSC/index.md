@@ -1,7 +1,7 @@
 ---
 date: '2023-8-15'
 title: 'Machine Learning and DevOps lead'
-company: 'Developer Student Club'
+company: 'GDSC'
 location: 'Kota, Raj'
 range: 'Aug 2023 - Aug 2024'
 url: 'https://gdsc.community.dev/indian-institute-of-information-technology-kota-india/'

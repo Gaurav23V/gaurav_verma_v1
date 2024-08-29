@@ -54,7 +54,7 @@ const StyledHamburgerButton = styled.button`
     transform: rotate(${(props) => (props.menuOpen ? `225deg` : `0deg`)});
     transition-timing-function: cubic-bezier(
       ${(props) =>
-        props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`}
+        props.$menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`}
     );
     &:before,
     &:after {
@@ -72,18 +72,18 @@ const StyledHamburgerButton = styled.button`
       transition-property: transform;
     }
     &:before {
-      width: ${(props) => (props.menuOpen ? `100%` : `120%`)};
-      top: ${(props) => (props.menuOpen ? `0` : `-10px`)};
-      opacity: ${(props) => (props.menuOpen ? 0 : 1)};
-      transition: ${({ menuOpen }) =>
-        menuOpen ? "var(--ham-before-active)" : "var(--ham-before)"};
+      width: ${(props) => (props.$menuOpen ? `100%` : `120%`)};
+      top: ${(props) => (props.$menuOpen ? `0` : `-10px`)};
+      opacity: ${(props) => (props.$menuOpen ? 0 : 1)};
+      transition: ${({ $menuOpen }) =>
+        $menuOpen ? "var(--ham-before-active)" : "var(--ham-before)"};
     }
     &:after {
-      width: ${(props) => (props.menuOpen ? `100%` : `80%`)};
-      bottom: ${(props) => (props.menuOpen ? `0` : `-10px`)};
-      transform: rotate(${(props) => (props.menuOpen ? `-90deg` : `0`)});
-      transition: ${({ menuOpen }) =>
-        menuOpen ? "var(--ham-after-active)" : "var(--ham-after)"};
+      width: ${(props) => (props.$menuOpen ? `100%` : `80%`)};
+      bottom: ${(props) => (props.$menuOpen ? `0` : `-10px`)};
+      transform: rotate(${(props) => (props.$menuOpen ? `-90deg` : `0`)});
+      transition: ${({ $menuOpen }) =>
+        $menuOpen ? "var(--ham-after-active)" : "var(--ham-after)"};
     }
   }
 `;
@@ -104,8 +104,8 @@ const StyledSidebar = styled.aside`
     background-color: var(--light-navy);
     box-shadow: -10px 0px 30px -15px var(--navy-shadow);
     z-index: 9;
-    transform: translateX(${(props) => (props.menuOpen ? 0 : 100)}vw);
-    visibility: ${(props) => (props.menuOpen ? "visible" : "hidden")};
+    transform: translateX(${(props) => (props.$menuOpen ? 0 : 100)}vw);
+    visibility: ${(props) => (props.$menuOpen ? "visible" : "hidden")};
     transition: var(--transition);
   }
 
