@@ -67,8 +67,7 @@ const Contact = () => {
       <p>
         I am currently seeking internship opportunities in Machine Learning and
         Software Development roles. If you&apos;re looking for someone eager to
-        learn and contribute, or if you just want to connect, I would love to
-        connect with you!
+        learn and contribute, I would love to connect with you!
       </p>
 
       {/* No changes to the email link */}
