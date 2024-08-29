@@ -1,6 +1,6 @@
 ---
 date: '2024-05-01'
-title: 'Software Intern'
+title: 'Software Engineer Intern'
 company: 'UpValue'
 location: 'Jaipur, Raj'
 range: 'May - Present'

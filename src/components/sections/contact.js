@@ -65,9 +65,10 @@ const Contact = () => {
       <h2 className="title">Get In Touch</h2>
 
       <p>
-        I am actively looking for research roles in Machine Learning and am open
-        to SDE rolls as well. If you have an opportunity, a question or just
-        want to say hi, I&apos;ll try my best to get back to you!
+        I am currently seeking internship opportunities in Machine Learning and
+        Software Development roles. If you&apos;re looking for someone eager to
+        learn and contribute, or if you just want to connect, I would love to
+        connect with you!
       </p>
 
       {/* No changes to the email link */}
