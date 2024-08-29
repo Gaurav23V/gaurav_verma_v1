@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
 import { navDelay, loaderDelay } from "../../utils/index";
@@ -59,17 +59,12 @@ const Hero = () => {
 
   const one = <h1>Hi, my name is</h1>;
   const two = <h2 className="big-heading">Gaurav Verma</h2>;
-  const three = (
-    <h3 className="big-heading">
-      lorem ipsum lorem ipsum.
-    </h3>
-  );
+  const three = <h3 className="big-heading">sudo pacman -Syu</h3>;
   const four = (
     <>
       <p>
-        I'm a software developer interested in web and mobile apps, as well as
-        AI. Currently, I'm a Software Intern working on web crawlers and
-        backend management at{" "}
+        Full-Stack Developer And Passionate About MLOps. Currently, I'm a Software
+        Intern working on web crawlers and backend management at{" "}
         <a href="https://upvalue.in/" target="_blank" rel="noreferrer">
           UpValue
         </a>
@@ -80,7 +75,7 @@ const Hero = () => {
   const five = (
     <a
       className="email-link"
-      href="#"
+      href="https://gaurav23v.hashnode.dev/"
       target="_blank"
       rel="noreferrer"
     >

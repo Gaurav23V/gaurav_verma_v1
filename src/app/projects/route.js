@@ -19,7 +19,6 @@ export async function GET(request) {
           ...matterResult.data,
           slug: filename
             .replace(/\.md$/, "")
-            .toLowerCase()
             .replace(/\s+/g, "-"), // Create slug from filename
         };
       }

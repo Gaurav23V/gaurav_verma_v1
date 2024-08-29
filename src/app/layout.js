@@ -1,15 +1,14 @@
-"use client"
+"use client";
 import GlobalStyle from "@/styles/GlobalStyle";
 import theme from "@/styles/theme";
-import styled, { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import Email from "@/components/email";
 import Footer from "@/components/footer";
 import Nav from "@/components/nav";
 import Social from "@/components/social";
 import Loader from "@/components/loader";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const StyledContent = styled.div`
   display: flex;
@@ -17,12 +16,37 @@ const StyledContent = styled.div`
   min-height: 100vh;
 `;
 
+const BodyStyle = createGlobalStyle`
+  body {
+    overflow-y: auto !important;
+  }
+`;
+
+const ClientOnly = ({ children }) => {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null;
+  }
+
+  return children;
+};
+
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const [isLoading, setIsLoading] = useState(isHome);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Sets target="_blank" rel="noopener noreferrer" on external links
+  useEffect(() => {
+    if (!isHome) {
+      setIsLoading(false);
+    }
+  }, [isHome]);
+
   const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll("a"));
     if (allLinks.length > 0) {
@@ -36,41 +60,40 @@ export default function RootLayout({ children }) {
   };
 
   useEffect(() => {
-    if (isLoading) {
-      return;
+    if (!isLoading) {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.scrollIntoView();
+            el.focus();
+          }
+        }, 0);
+      }
+      handleExternalLinks();
     }
-
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView();
-          el.focus();
-        }
-      }, 0);
-    }
-
-    handleExternalLinks();
-  }, [isLoading, pathname]); 
+  }, [isLoading, pathname]);
 
   return (
     <html lang="en">
       <body>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          {isLoading && isHome ? (
-            <Loader finishLoading={() => setIsLoading(false)} />
-          ) : (
-            <StyledContent>
-              <Nav isHome={isHome} />
-              <Social isHome={isHome} />
-              <Email isHome={isHome} />
-              {children}
-              
-              <Footer />
-            </StyledContent>
-          )}
+          <BodyStyle />
+          <ClientOnly>
+            {isLoading && isHome ? (
+              <Loader finishLoading={() => setIsLoading(false)} />
+            ) : (
+              <StyledContent>
+                <Nav isHome={isHome} />
+                <Social isHome={isHome} />
+                <Email isHome={isHome} />
+                {children}
+                <Footer />
+              </StyledContent>
+            )}
+          </ClientOnly>
         </ThemeProvider>
       </body>
     </html>

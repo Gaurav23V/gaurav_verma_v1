@@ -7,6 +7,9 @@ import { Icon } from "@/components/icons";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { srConfig } from "@/config";
 import initScrollReveal from "@/utils/sr";
+import { remark } from "remark";
+import html from "remark-html";
+import matter from "gray-matter";
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -166,6 +169,36 @@ const StyledProject = styled.li`
   }
 `;
 
+const ProjectContent = ({ slug }) => {
+  const [contentHtml, setContentHtml] = useState("");
+  const [loading, setLoading] = useState(true);
+  const nodeRef = useRef(null);
+
+  useEffect(() => {
+    const fetchMarkdown = async () => {
+      try {
+        const response = await fetch(`/content/projects/${slug}.md`);
+        const markdown = await response.text();
+
+        const { content } = matter(markdown);
+
+        const processedContent = await remark().use(html).process(content);
+        setContentHtml(processedContent.toString());
+      } catch (error) {
+        console.error("Error fetching project content:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMarkdown();
+  }, [slug]);
+
+  if (loading) return <p>Loading...</p>;
+
+  return <div dangerouslySetInnerHTML={{ __html: contentHtml }} />;
+};
+
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [showMore, setShowMore] = useState(false);
@@ -211,28 +244,9 @@ const Projects = () => {
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
 
-  const LazyProjectContent = lazy(async ({ slug }) => {
-    const response = await fetch(`/content/projects/${slug}.md`);
-    const markdown = await response.text();
-    const processedContent = await remark().use(html).process(markdown);
-    const contentHtml = processedContent.toString();
-
-    return {
-      default: () => <div dangerouslySetInnerHTML={{ __html: contentHtml }} />,
-    };
-  });
-
   return (
     <StyledProjectsSection>
       <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
-
-      <Link
-        className="inline-link archive-link"
-        to="/archive"
-        ref={revealArchiveLink}
-      >
-        view the archive
-      </Link>
 
       <ul className="projects-grid">
         {projectsToShow.map((project, i) => (
@@ -279,9 +293,8 @@ const Projects = () => {
 
                   <h3 className="project-title">{project.title}</h3>
 
-                  <Suspense fallback={<div>Loading project details...</div>}>
-                    <LazyProjectContent slug={project.slug} />
-                  </Suspense>
+                  <ProjectContent slug={project.slug} />
+
                 </header>
 
                 <footer>
@@ -299,9 +312,9 @@ const Projects = () => {
         ))}
       </ul>
 
-      <button className="more-button" onClick={() => setShowMore(!showMore)}>
+      {/* <button className="more-button" onClick={() => setShowMore(!showMore)}>
         Show {showMore ? "Less" : "More"}
-      </button>
+      </button> */}
     </StyledProjectsSection>
   );
 };

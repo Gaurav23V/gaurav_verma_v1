@@ -204,7 +204,7 @@ const Nav = ({ isHome }) => {
   const ResumeLink = (
     <a
       className="resume-button"
-      href="/resume.pdf"
+      href="https://drive.google.com/file/d/1apm9ghN-3KwDWjFstq7h-rtpN3dOkvsO/view?usp=sharing"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -241,7 +241,9 @@ const Nav = ({ isHome }) => {
                     >
                       <li
                         key={i}
-                        style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}
+                        style={{
+                          transitionDelay: `${isHome ? i * 100 : 0}ms`,
+                        }}
                       >
                         <Link href={url}>{name}</Link>
                       </li>

@@ -21,6 +21,7 @@ const page = () => {
       <About />
       <Jobs />
       <Featured />
+      <Projects />
       <Contact />
     </StyledMainContainer>
   );

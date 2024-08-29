@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
@@ -53,9 +53,9 @@ const Side = ({ children, isHome, orientation }) => {
 };
 
 Side.propTypes = {
-    children: PropTypes.node.isRequired,
-    isHome: PropTypes.bool,
-    orientation: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  isHome: PropTypes.bool,
+  orientation: PropTypes.string,
 };
 
-export default Side
+export default Side;
