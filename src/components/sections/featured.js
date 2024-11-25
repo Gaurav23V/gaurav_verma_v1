@@ -414,6 +414,7 @@ const Featured = () => {
                     width={300} // Adjust width and height as needed
                     height={365}
                     className="img"
+                    quality={100}
                   />
                 </a>
               </div>

@@ -134,12 +134,12 @@ const About = () => {
   }, []);
 
   const skills = [
-    "Python",
-    "JS",
+    "PyTorch",
     "NextJS",
-    "NLP",
     "React-Native",
     "Computer-Vision",
+    "Docker",
+    "Django",
   ];
 
   return (

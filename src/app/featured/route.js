@@ -28,6 +28,8 @@ export async function GET(request) {
         };
       })
     );
+
+    featuredProjectsData.sort((a, b) => Number(a.date) - Number(b.date));
   
     return NextResponse.json(featuredProjectsData);
   }
