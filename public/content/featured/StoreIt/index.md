@@ -3,7 +3,7 @@ date: "1"
 title: "Store It"
 cover: "store_it.webp"
 github: "https://github.com/gaurav23v/store-it"
-external: "https://store-it-ten-khaki.vercel.app/"
+external: "https://store-it.gaurav23v.live/"
 tech:
   - Next.js 15
   - React
