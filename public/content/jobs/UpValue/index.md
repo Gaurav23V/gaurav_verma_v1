@@ -1,12 +1,10 @@
 ---
-date: '2024-05-01'
-title: 'Software Engineer Intern'
+date: '2024-06-01'
+title: 'Software Intern'
 company: 'UpValue'
-location: 'Jaipur, Raj'
-range: 'May - Present'
+location: 'Jaipur, Rajasthan'
+range: 'Jun 2024 - Aug 2024'
 url: 'https://upvalue.in/'
 ---
 
-- Designed and implemented high-performance web crawlers, boosting data extraction efficiency.
-- Assisted in managing backend databases and servers, maintaining uptime and seamless data access
-- Architected the backend and implemented responsive design principles and optimized load times to enhance site performance and UX
+- Designed and implemented web crawlers for automated data collection, improving data extraction efficiency by 30% and supporting the company's data pipeline infrastructure.

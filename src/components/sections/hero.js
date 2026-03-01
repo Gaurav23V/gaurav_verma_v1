@@ -63,12 +63,8 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        Full-Stack Developer And Passionate About MLOps. Currently, Ex
-        Software Intern at{" "}
-        <a href="https://upvalue.in/" target="_blank" rel="noreferrer">
-          UpValue
-        </a>
-        {" "}with experience in data engineering and web technologies.
+        Full-Stack Developer passionate about building scalable and fast
+        backend systems and data pipelines.
       </p>
     </>
   );

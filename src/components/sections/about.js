@@ -134,12 +134,12 @@ const About = () => {
   }, []);
 
   const skills = [
-    "PyTorch",
-    "NextJS",
-    "React-Native",
-    "Computer-Vision",
+    "Python",
+    "Golang",
+    "PostgreSQL",
+    "AWS",
     "Docker",
-    "Django",
+    "Redis",
   ];
 
   return (
@@ -150,20 +150,24 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              I am Gaurav and i enjoy exploring new tech. Fell in love with
+              I am Gaurav and I enjoy exploring new tech. Fell in love with
               computers ever since I played my first computer game, and still
               can&apos;t control the excitement I get after hearing about something
               new.
             </p>
             <p>
-              Fast-forward to today, and I’ve explore various fields such as
-              MLOps and Web Development. Also have been a part of the{" "}
-              <a href="https://gdsc.community.dev/indian-institute-of-information-technology-kota-india/">
+              Fast-forward to today, and I&apos;ve explored various fields such as
+              MLOps and Web Development. I&apos;ve also been a part of the{" "}
+              <a href="https://gdsc.community.dev/indian-institute-of-information-technology-kota-india/" target="_blank" rel="noreferrer">
                 Google Developers Student Club
               </a>
-              , Where I was able to improve my leadership and teaching skills.
-              My main focus these days is contributing in open source programs
-              and building backend at <a href="https://upvalue.in/">UpValue</a>.
+              , where I was able to improve my leadership and teaching skills.
+              My main focus these days is building data pipelines and backend
+              systems at{" "}
+              <a href="https://segwise.ai/" target="_blank" rel="noreferrer">
+                Segwise.ai
+              </a>
+              .
             </p>
 
             <p>

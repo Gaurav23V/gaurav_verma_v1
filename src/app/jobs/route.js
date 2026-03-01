@@ -28,5 +28,8 @@ export async function GET(request) {
         })
     );
 
+    // Sort by date descending (newest first)
+    jobsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
     return NextResponse.json(jobsData)
 }
