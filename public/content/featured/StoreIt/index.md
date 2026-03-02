@@ -1,5 +1,5 @@
 ---
-date: "1"
+date: "2"
 title: "Store It"
 cover: "store_it.webp"
 github: "https://github.com/gaurav23v/store-it"
