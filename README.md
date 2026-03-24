@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# gaurav_verma_v1
 
-## Getting Started
+A personal portfolio website showcasing full-stack development skills, projects, and professional experience.
 
-First, run the development server:
+## Purpose
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This is a personal portfolio website for Gaurav Verma, a Full-Stack Developer passionate about building scalable backend systems and data pipelines. The site features a modern, animated design with sections for work experience, featured projects, and contact information.
+
+## Tech Stack
+
+- **Framework:** Next.js 14.2.5 (React 18)
+- **Styling:** styled-components 6.1.12
+- **Animations:** anime.js 3.2.2, scrollreveal 4.0.9
+- **Markdown Processing:** gray-matter, remark, remark-html
+- **Transitions:** react-transition-group 4.4.5
+- **Language:** JavaScript (with JSX)
+
+## Implementation Details
+
+### Project Structure
+
+```
+src/
+├── app/
+│   ├── page.js          # Main page component
+│   └── layout.js        # Root layout
+├── components/
+│   ├── sections/
+│   │   ├── hero.js      # Hero section with intro
+│   │   ├── about.js     # About me section
+│   │   ├── jobs.js      # Work experience timeline
+│   │   ├── featured.js  # Featured projects showcase
+│   │   ├── projects.js  # All projects grid
+│   │   └── contact.js   # Contact form & social links
+│   ├── footer.js
+│   ├── menu.js
+│   ├── loader.js
+│   ├── email.js
+│   └── social.js
+├── styles/
+│   ├── GlobalStyle.js   # Global CSS styles
+│   ├── theme.js         # Theme configuration
+│   ├── fonts.js         # Custom font definitions
+│   ├── variables.js     # CSS variables
+│   └── TransitionStyles.js
+├── hooks/
+│   ├── useOnClickOutside.js
+│   └── useScrollDirection.js
+└── config.js            # Site configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Animated Hero Section:** Smooth fade-up animations on page load using react-transition-group
+- **Scroll Reveal:** Elements animate into view as the user scrolls
+- **Dynamic Content:** Projects and job experiences loaded from markdown files
+- **Responsive Design:** Mobile-first approach with styled-components
+- **Custom Fonts:** SF Mono font family for code/technical aesthetic
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Featured Projects
 
-## Learn More
+The portfolio showcases projects including:
+- **TexForge:** Web-based LaTeX editor with real-time PDF compilation
+- **StoreIt:** Cloud storage solution
+- **FoodVision:** Food recognition application
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Clone the repository
+git clone <repository-url>
+cd gaurav_verma_v1
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Install dependencies
+npm install
 
-## Deploy on Vercel
+# Run development server
+npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Build for production
+npm run build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Start production server
+npm start
+```
+
+## Usage
+
+1. Open [http://localhost:3000](http://localhost:3000) in your browser
+2. Navigate through sections using the navigation menu
+3. View featured projects and work experience
+4. Contact via email or social links
+
+## Configuration
+
+Edit `src/config.js` to customize:
+- Email address
+- Social media links (GitHub, Instagram, Twitter, LinkedIn)
+- Navigation links
+- Color scheme (green, navy, darkNavy)
+- Scroll reveal animation settings
